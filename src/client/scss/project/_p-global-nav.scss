@@ -1,0 +1,95 @@
+@use "../configuration" as *;
+
+.p-global-nav {
+  &__wrapper {
+    width: 24rem;
+    position: fixed;
+    right: -24rem;
+    top: 0;
+    bottom: 0;
+    z-index: 12;
+    background: $default;
+    transition: transform 0.3s;
+    overflow-y: scroll;
+  }
+
+  &__container {
+    padding: 1.5rem;
+    min-height: calc(100vh - 100px);
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: -500;
+    opacity: 0;
+  }
+
+  &__close {
+    background: transparent;
+    outline: none;
+    text-align: right;
+    cursor: pointer;
+  }
+
+  &__items {
+    margin-top: 2rem;
+  }
+
+  &__item {
+    padding: 1rem 0;
+    &:not(:last-child) {
+      border-top: 1px solid #bbd0d5;
+    }
+  }
+
+  &__link {
+    font-size: 1.25rem;
+    padding: 0.75rem 0;
+    font-weight: bold;
+
+    &.is-nomal {
+      font-weight: normal;
+    }
+  }
+
+  &.is-active {
+    .p-global-nav__overlay {
+      opacity: 1;
+      z-index: 500;
+    }
+    .p-global-nav__wrapper {
+      transform: translateX(-24rem);
+      z-index: 600;
+    }
+  }
+
+  &__icon {
+    width: 1rem !important;
+  }
+
+  &__search {
+    position: relative;
+  }
+
+  &__button {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 30px;
+    height: 30px;
+  }
+
+  &__media {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+  }
+}

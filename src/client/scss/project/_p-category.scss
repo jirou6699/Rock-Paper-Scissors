@@ -1,0 +1,40 @@
+@use "../configuration" as *;
+
+.p-category {
+  
+  &__items {
+    padding: 1rem 0;
+
+    &.is-scroll {
+      @include mobile {
+        white-space: nowrap;
+        overflow-x: scroll;
+      }
+    }
+
+    &.is-center {
+      text-align: center;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    padding-right: 0.75rem;
+    line-height: 2;
+  }
+
+  &__icon {
+    width: 1rem;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    background-color: $secondary;
+    border-radius: 1rem;
+
+    &:hover {
+      background-color: #bbd0d5;
+    }
+  }
+}

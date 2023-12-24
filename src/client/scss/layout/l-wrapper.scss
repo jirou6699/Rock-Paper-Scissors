@@ -1,0 +1,7 @@
+@use "../configuration" as *;
+
+.l-wrapper {
+  @include tablet {
+    display: flex;
+  }
+}

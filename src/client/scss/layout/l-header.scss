@@ -1,0 +1,46 @@
+@use "../configuration" as *;
+
+.l-header {
+  border-top: 4px solid $primary;
+  position: relative;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  &__lead {
+    font-weight: bold;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  &__media {
+    width: 12rem;
+  }
+  
+  &__text {
+    font-size: 1.8rem;
+    color: $primary;
+    font-weight: bold;
+    margin-left: 0.25rem;
+  }
+
+  &__bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: $primary;
+    border-radius: 30px;
+
+    &:not(:first-child) {
+      margin-top: 0.5rem;
+    }
+  }
+}

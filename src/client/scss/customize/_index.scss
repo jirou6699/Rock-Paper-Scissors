@@ -1,0 +1,286 @@
+// word press block editor custom scss
+@use "../configuration" as *;
+
+// scss for widget banners.
+.widget-middle {
+  margin-top: 4rem;
+}
+
+.widget-bottom {
+  position: relative;
+  width: 100%;
+  height: 12vw;
+  max-height: 5rem;
+  background: $primary;
+}
+
+.widget-bottom-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 35rem;
+  max-width: 100%;
+  margin: 0 auto !important;
+
+  @include mobile {
+    width: 100%;
+  }
+}
+
+.wp-block-image,
+.size-full {
+  margin: 0 auto !important;
+}
+
+// scss for pagenation
+.pagenation {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.page-numbers {
+  padding: 0 1rem;
+
+  &:hover:not(.dots, .prev, .next) {
+    position: relative;
+    color: white;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 25px;
+      height: 25px;
+      background-color: $primary;
+      border-radius: 15px;
+      z-index: -1;
+    }
+  }
+
+  &.prev,
+  &.next {
+    font-weight: bold;
+    font-size: 1.25rem;
+    line-height: 1;
+  }
+
+  &.current {
+    font-weight: bold;
+  }
+}
+
+// scss for YARPP
+.yarpp-related {
+  margin: 0 !important;
+  padding-bottom: 1rem;
+  display: flex;
+  overflow-x: scroll;
+}
+.yarpp-related h3 {
+  font-size: 100% !important;
+}
+
+// scss for table of contents
+div#ez-toc-container {
+  border-top: 3px solid $primary !important;
+  border-bottom: 3px solid $primary !important;
+  border-left: 0 !important;
+  border-right: 0 !important;
+  border-radius: 0;
+  box-sizing: border-box;
+  line-height: 1.4;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.ez-toc-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem !important;
+  border-bottom: 1px solid $primary;
+}
+
+.ez-toc-list {
+  li {
+    padding: 0.5rem 0 !important;
+    border-bottom: 1px solid #bbd0d5;
+  }
+}
+
+// scss for site reviews(plugin)
+.glsr-summary-wrap {
+  padding: 1rem 0;
+  border-bottom: 1px solid #bbd0d5 !important;
+}
+
+.glsr-summary {
+  @include tablet {
+    max-width: 80% !important;
+  }
+}
+
+.glsr-summary-percentages {
+  margin-top: 1rem;
+}
+
+.glsr-summary-rating {
+  font-size: 2rem !important;
+}
+
+.glsr-review-title {
+  font-weight: bold;
+}
+
+.glsr-summary-stars {
+  font-size: 2rem !important;
+  margin-left: 1rem;
+}
+
+.glsr-summary-text {
+  font-size: 0.75rem !important;
+}
+
+.glsr-review {
+  padding: 1rem 0;
+  border-bottom: 1px solid #bbd0d5;
+}
+
+.glsr-review-author {
+  padding-left: 50px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    background: url(../../themes/creal/images/shared/icons/human.png) no-repeat center center / contain;
+  }
+}
+
+.glsr-reviews,
+.glsr-review {
+  display: block !important;
+}
+
+.glsr-review-content {
+  margin-top: 0.5rem;
+}
+
+.glsr-review-author {
+  margin-top: 1rem;
+}
+
+.glsr-default,
+.glsr-review-rating {
+  display: block !important;
+}
+
+.glsr-review-rating,
+.glsr-review-date {
+  display: inline-block !important;
+  vertical-align: middle;
+}
+
+.glsr-review-rating {
+  margin-left: 3rem;
+}
+
+.pagination {
+  .navigation {
+    margin-top: 1rem;
+    text-align: center;
+  }
+}
+
+.glsr-review-date {
+  margin-left: 1rem;
+}
+
+.glsr-star-rating,
+.glsr-stars {
+  .glsr-star-full {
+    background-image: url(../../themes/creal/images/shared/icons/star-full.svg) !important;
+  }
+
+  .glsr-star-half {
+    background-image: url(../../themes/creal/images/shared/icons/star-half.svg) !important;
+  }
+
+  .glsr-star-empty {
+    background-image: url(../../themes/creal/images/shared/icons/star-empty.svg) !important;
+  }
+}
+
+.glsr-summary-rating {
+  font-size: 2.5rem !important;
+}
+
+.glsr-bar-background-percent {
+  color: #26bae6 !important;
+}
+
+.glsr-summary-text {
+  font-size: 1rem !important;
+}
+
+.glsr-summary .glsr-bar-label {
+  padding-left: 1.5rem !important;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: url(../../themes/creal/images/shared/icons/star-full.svg);
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 20px;
+    height: 20px;
+  }
+}
+// scss for recent_posts(404)
+.widget {
+  margin-top: 2rem;
+}
+
+.widget_recent_entries {
+  li {
+    margin-top: 0.5rem;
+  }
+}
+
+.widgettitle {
+  font-size: 1.5rem;
+}
+
+// scss for list categories(404)
+.cat-item {
+  margin-top: 0.5rem;
+}
+
+.screen-reader-text {
+  border: 1px solid $primary;
+}
+
+// scss for archives-dropdown(404)
+#archives-dropdown--1 {
+  -webkit-appearance: auto !important;
+  appearance: auto !important;
+  vertical-align: middle;
+  background: $white;
+  padding: 0.25rem 2rem;
+  margin-top: 1rem;
+  border: 1px solid $primary;
+  border-radius: 5px;
+
+  &:focus {
+    color: '';
+    background-color: '';
+    border-color: $input-focus-border-color;
+    outline: 0;
+  }
+}

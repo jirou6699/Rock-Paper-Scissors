@@ -1,0 +1,29 @@
+@use "../configuration" as *;
+
+.p-not-found {
+
+  &__header {
+    margin-top: 1.5rem;
+  }
+
+  &__heading {
+    font-size: 2.5rem;
+  }
+
+  &__content {
+    margin-top: 1.5rem;
+  }
+
+  &__text {
+    font-size: 1.25rem;
+  }
+
+  &__search {
+    position: relative;
+    width: 80%;
+
+    @include tablet {
+      width: 60%;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@use "../configuration" as *;
+
+//
+// Labels
+//
+.c-form-label {
+  @include font-size($form-label-font-size);
+  font-style: $form-label-font-style;
+  font-weight: $input-font-weight;
+  color: $form-label-color;
+}

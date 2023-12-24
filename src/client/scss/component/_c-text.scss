@@ -1,0 +1,29 @@
+@use "../configuration" as *;
+
+.c-text {
+  line-height: 1.6;
+
+  &.is-md {
+    font-size: 1rem;
+  }
+
+  &.is-sm {
+    font-size: 0.75rem;
+  }
+
+  &.is-primary {
+    color: $primary;
+  }
+
+  &.is-secondary {
+    color: $white;
+  }
+
+  &.is-link {
+    color: #1e83cc;
+  }
+
+  &.is-bold {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,61 @@
+@use "../configuration" as *;
+
+html {
+  font-size: 16px;
+}
+
+body {
+  color: $primary;
+  font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  line-height: 1.5;
+
+  &.is-freeze {
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  display: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+button {
+  width: 100%;
+}
+
+select {
+  color: $primary;
+  flex-grow: 1rem;
+  background-image: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+input::-webkit-input-placeholder {
+  color: #999999 !important;
+}
+input:-moz-placeholder {
+  color: #999999 !important;
+}
+input::-moz-placeholder {
+  color: #999999 !important;
+}
+input:-ms-input-placeholder {
+  color: #999999 !important;
+}

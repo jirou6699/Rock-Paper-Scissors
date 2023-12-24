@@ -1,0 +1,95 @@
+@use "../configuration" as *;
+
+//
+// General form controls
+//
+
+.c-form-check {
+  display: block;
+  width: 100%;
+  font-weight: $input-font-weight;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  appearance: none; // Fix appearance for date inputs in Safari
+  position: relative;
+  margin-top: 1rem;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @include border-radius($input-border-radius, 0);
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  &[type="file"] {
+    overflow: hidden; // prevent pseudo element button overlap
+
+    &:not(:disabled):not([readonly]) {
+      cursor: pointer;
+    }
+  }
+
+  // check box
+  &__box {
+    border-radius: 3px;
+    position: relative;
+    border-color: $primary ;
+    color: $primary;
+    padding: 1rem 1rem 1rem 3rem;
+    margin-top: 1.5rem;
+  }
+
+  &__label {
+    display: block;
+    padding: $input-padding-y $input-padding-x $input-padding-y 3rem;
+    color: $primary;
+
+    // outer square
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 3px;
+      border: 1px solid $primary;
+    }
+
+    // inner check
+    &::after {
+      position: absolute;
+      content: "";
+      top: 1.35rem;
+      left: 1.15rem;
+      z-index: 400;
+      width: 15px;
+      height: 8.5px;
+      border-left: 3px solid;
+      border-bottom: 3px solid;
+      border-color: $primary;
+      transform: rotate(-45deg);
+      display: none;
+    }
+  }
+}
+
+.c-form-check__box:checked~.c-form-check__label {
+  background-color: $primary;
+  color: $white;
+
+  &::before {
+    background-color: $white;
+  }
+
+  &::after {
+    display: block !important;
+    border-color: $primary;
+  }
+}
+
+.c-form-check__box:checked~.l-row div:last-child div:nth-child(2) a {
+  background-color: $primary;
+  color: $white;
+}

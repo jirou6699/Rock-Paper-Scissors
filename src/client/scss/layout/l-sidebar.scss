@@ -1,0 +1,7 @@
+@use "../configuration" as *;
+
+.l-sidebar {
+  @include tablet {
+    width: 30%;
+  }
+}

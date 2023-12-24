@@ -1,0 +1,59 @@
+@use "../configuration" as *;
+
+// Select
+//
+// Replaces the browser default select with a custom one, mostly pulled from
+// https://primer.github.io/.
+
+.c-form-select {
+  display: block;
+  width: 100%;
+  padding: $form-select-padding-y $form-select-indicator-padding $form-select-padding-y $form-select-padding-x;
+  -moz-padding-start: subtract($form-select-padding-x, 3px); // See https://github.com/twbs/bootstrap/issues/32636
+  font-family: $form-select-font-family;
+  font-weight: $form-select-font-weight;
+  color: $form-select-color;
+  background-color: $form-select-bg;
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOS4yMzUiIGhlaWdodD0iMTIuMDIxIiB2aWV3Qm94PSIwIDAgMTkuMjM1IDEyLjAyMSI+CiAgPHBhdGggZD0iTTIuNCwxOS4yMzVhMi40LDIuNCwwLDAsMS0xLjctNC4xTDYuMjE4LDkuNjE3LjcsNC4xQTIuNCwyLjQsMCwwLDEsNC4xLjdsNy4yMTMsNy4yMTNhMi40LDIuNCwwLDAsMSwwLDMuNEw0LjEsMTguNTMxQTIuNCwyLjQsMCwwLDEsMi40LDE5LjIzNVoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE5LjIzNSkgcm90YXRlKDkwKSIgZmlsbD0iIzAwMzg4ZSIvPgo8L3N2Zz4K');
+  background-repeat: no-repeat;
+  background-position: $form-select-bg-position;
+  background-size: $form-select-bg-size;
+  border: $form-select-border-width solid $form-select-border-color;
+  @include border-radius($form-select-border-radius, 0);
+  @include box-shadow($form-select-box-shadow);
+  @include transition($form-select-transition);
+  appearance: none;
+
+  &:focus {
+    border-color: $form-select-focus-border-color;
+    outline: 0;
+    @if $enable-shadows {
+      @include box-shadow($form-select-box-shadow, $form-select-focus-box-shadow);
+    } @else {
+      // Avoid using mixin so we can pass custom focus shadow properly
+      box-shadow: $form-select-focus-box-shadow;
+    }
+  }
+
+  &[multiple],
+  &[size]:not([size="1"]) {
+    padding-right: $form-select-padding-x;
+    background-image: none;
+  }
+
+  &:disabled {
+    // color: $form-select-disabled-color;
+    background-color: $form-select-disabled-bg;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyBpZD0idG9nZ2xlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNC41IiBoZWlnaHQ9IjguNSIgdmlld0JveD0iMCAwIDE0LjUgOC41Ij4KICA8cGF0aCBpZD0i5ZCI5L2TXzE0IiBkYXRhLW5hbWU9IuWQiOS9kyAxNCIgZD0iTTYuMzY2LDguMTM0bC02LTZBMS4yNSwxLjI1LDAsMCwxLDIuMTM0LjM2Nkw3LjI1LDUuNDgyLDEyLjM2Ni4zNjZhMS4yNSwxLjI1LDAsMCwxLDEuNzY4LDEuNzY4bC02LDZhMS4yNTMsMS4yNTMsMCwwLDEtMS43NjgsMFoiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgMCkiIGZpbGw9IiM5OTkiLz4KPC9zdmc+Cg==');
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  // Remove outline from select box in FF
+  &:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 $form-select-color;
+  }
+}

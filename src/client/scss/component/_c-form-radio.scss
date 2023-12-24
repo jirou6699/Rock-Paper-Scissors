@@ -1,0 +1,81 @@
+@use "../configuration" as *;
+
+//
+// General form controls
+//
+
+.c-form-radio {
+  display: block;
+  width: 100%;
+  font-weight: bold;
+  color: $input-color;
+  background-color: $input-bg;
+  background-clip: padding-box;
+  border: $input-border-width solid $input-border-color;
+  appearance: none; // Fix appearance for date inputs in Safari
+  position: relative;
+
+  // Note: This has no effect on <select>s in some browsers, due to the limited stylability of `<select>`s in CSS.
+  @include border-radius($input-border-radius, 0);
+
+  @include box-shadow($input-box-shadow);
+  @include transition($input-transition);
+
+  &[type="file"] {
+    overflow: hidden; // prevent pseudo element button overlap
+
+    &:not(:disabled):not([readonly]) {
+      cursor: pointer;
+    }
+  }
+
+  // designed button
+  &__label {
+    display: block;
+    color: $primary;
+    padding: $input-padding-y $input-padding-x $input-padding-y 3rem;
+
+    // outer circle
+    &::before {
+      position: absolute;
+      content: "";
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1rem;
+      width: 1.25rem;
+      height: 1.25rem;
+      border-radius: 50%;
+      border: 1px solid $primary;
+    }
+
+    // inner circle
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0.75rem;
+      height: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 1.25rem;
+      border-radius: 50%;
+      background-color: $primary;
+      display: none;
+    }
+  }
+}
+
+.c-form-radio__input:checked~.c-form-radio__label {
+  background-color: $primary;
+}
+
+.c-form-radio__input:checked + label {
+  color: $white;
+
+  &::before {
+    border-color: $white;
+  }
+  &::after {
+    display: block !important;
+    background-color: $white;
+  }
+}

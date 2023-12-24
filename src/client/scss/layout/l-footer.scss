@@ -1,0 +1,30 @@
+@use "../configuration" as *;
+
+.l-footer {
+  background-color: $primary;
+
+  &__top {
+    display: flex;
+
+    .l-footer__link {
+      &:not(:last-child) {
+        border-right: 1px solid $default;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    width: 50%;
+    background-color: $primary;
+    padding: 1rem 0;
+    color: $white;
+    text-align: center;
+    font-weight: bold;
+    border-top: 1px solid $default;
+
+    &.is-lg {
+      width: 100%;
+    }
+  }
+}

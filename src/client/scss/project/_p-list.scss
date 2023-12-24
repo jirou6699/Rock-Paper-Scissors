@@ -1,0 +1,63 @@
+@use "../configuration" as *;
+
+.p-list {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #bbd0d5;
+  display: flex;
+
+  &:hover {
+    opacity: 0.6;
+  }
+
+  &__media {
+    position: relative;
+    width: 80px;
+    height: 80px;
+
+    @include tablet {
+      width: 100px;
+      height: 100px;
+    }
+
+    > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+  }
+
+  &__body {
+    padding-left: 1rem;
+    flex: 1;
+  }
+
+  &__heading {
+    font-weight: bold;
+  }
+
+  &__date {
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+  }
+
+  &__categories {
+    margin-top: 0.5rem;
+  }
+
+  &__category {
+    display: inline-block;
+    margin-left: 0.25rem;
+  }
+
+  &__category-name {
+    font-weight: normal;
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+    background-color: $secondary;
+    border-radius: 20px;
+  }
+}

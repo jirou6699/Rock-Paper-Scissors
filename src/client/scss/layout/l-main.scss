@@ -1,0 +1,8 @@
+@use "../configuration" as *;
+
+.l-main {
+  @include tablet {
+    width: 70%;
+    
+  }
+}
