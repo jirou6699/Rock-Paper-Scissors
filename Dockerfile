@@ -11,8 +11,5 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# WORKDIR /src/client
-# COPY ./src/client/package.json /src/client/
-# RUN npm install
-COPY ./src /usr/share/nginx/html
-# CMD [ "npm", "start" ]
+WORKDIR /usr/share/nginx/html
+COPY ./src .
