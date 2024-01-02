@@ -1,22 +1,10 @@
 @use "../configuration" as *;
 
 .c-heading1 {
-  font-size: 2rem; //32px
+  font-size: 2rem;
   font-weight: bold;
-}
 
-.c-heading2 {
-  font-size: 1.5rem; //24px(sp)
-  font-weight: bold;
-}
-
-.c-heading1,
-.c-heading2 {
-  &.is-primary {
-    color: $primary;
-  }
-
-  &.is-secondary {
-    color: $secondary;
+  @include tablet {
+    font-size: 3rem;
   }
 }

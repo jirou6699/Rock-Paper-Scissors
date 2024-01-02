@@ -1,19 +1,19 @@
 @use "../configuration" as *;
 
 .c-button {
-  border-radius: 50em;
-  padding: 0.75rem 0;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
   display: block;
   text-align: center;
 
-  &.is-default {
-    border: 1px solid $primary;
-    color: $primary;
-    font-weight: bold;
+  &:hover {
+    opacity: 0.7;
+    cursor: pointer;
+  }
 
-    &:hover {
-      background-color: $primary;
-      color: $white;
-    }
+  &.is-default {
+    background-color: $green;
+    font-weight: bold;
+    font-size: 1.25rem;
   }
 }
