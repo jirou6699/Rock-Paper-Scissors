@@ -5,7 +5,7 @@ This is a simple rock-paper-scissors game created with JavaScript.
 ・The theme of the rock-paper-scissors game is inspired by [the following link](https://github.com/developedbyed/rock-paper-scissor).  
 ・But the environment setup and coding have been created originally.
 
-![rock-paper-scissors](https://github.com/jirou6699/Rock-Paper-Scissors/assets/images/game.png)
+![rock-paper-scissors](./src/assets/images/game.png)
 
 ## Getting started
 
