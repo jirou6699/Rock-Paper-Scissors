@@ -1,0 +1,14 @@
+@use "../configuration" as *;
+
+.c-button-container {
+  width: 15rem;
+  max-width: 100%;
+
+  &.is-primary {
+    margin: 10rem auto 0;
+  }
+
+  &.is-secondary {
+    margin: auto auto 0;
+  }
+}

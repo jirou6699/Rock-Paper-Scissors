@@ -1,0 +1,31 @@
+@use "../configuration" as *;
+
+.p-head {
+  text-align: center;
+  padding: 2rem 0;
+
+  @include tablet {
+    padding: 3rem 0;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__col {
+    display: inline-block;
+  }
+
+  &__text {
+    font-size: 1rem;
+
+    @include tablet {
+      font-size: 1.5rem;
+    }
+
+    & span {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use "../configuration" as *;
+
+.p-body {
+  margin-top: 1rem;
+
+  @include tablet {
+    margin-top: 3rem;
+  }
+
+
+  &__row {
+    margin-top: 3rem;
+
+    @include tablet {
+      margin-top: 1rem;
+    }
+
+    &.is-primary {
+      justify-content: space-between;
+    }
+
+    &.is-secondary {
+      @include mobile {
+        gap: 1rem;
+      }
+    }
+
+    &.is-shake {
+      animation-name: shake;
+      animation-timing-function: ease-in;
+      animation-iteration-count: 6;
+      animation-direction: alternate;
+      animation-duration: 250ms;
+    }
+  }
+
+  &__media {
+    &.is-reverse {
+      transform: scale(-1, 1);
+    }
+  }
+}
+
+@keyframes shake {
+  0% {
+    transform: translateY(0%);
+  }
+
+  100% {
+    transform: translateY(25%);
+  }
+}

@@ -1,63 +1,22 @@
 @use "../configuration" as *;
 
 .l-section {
-  border-top: 3px solid $primary;
+  width: 100%;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
 
-  &.is-mobile {
-    @include tablet {
-      display: none;
-    }
+  &.is-fadeOut {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease;
   }
 
-  &__container {
-    padding-bottom: 3rem;
-  }
-
-  &__cards {
-    padding-bottom: 1rem;
-    display: flex;
-
-    &.is-scroll {
-      overflow-x: scroll;
-    }
-
-    &.is-vertical {
-      @include mobile {
-        display: block;
-      }
-    }
-
-    &.is-horizontal {
-      @include tablet {
-        display: block;
-      }
-    }
-  }
-
-  &__heading,
-  &__sub-heading {
-    color: $primary;
-    font-family: $second-font-family;
-  }
-
-  &__heading {
-    font-size: 2.25rem;
-    font-weight: bold;
-    margin-top: 1rem;
-    border-bottom: 1px solid $primary;
-  }
-
-  &__sub-heading {
-    font-size: 1rem;
-  }
-
-  &__item {
-    margin-top: 0.25rem;
-  }
-
-  &__button {
-    text-align: center;
-    margin-top: 2rem;
-    padding: 0 20%;
+  &.is-fadeIn {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+    transition: opacity 1s ease 1s;
   }
 }

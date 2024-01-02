@@ -1,12 +1,76 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css">
-  <title>Document</title>
+  <title>Rock Paper and Scissors</title>
+  <mete name="description" content="This is a rock-paper-scissors game created in JavaScript." />
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
+
 <body>
-  <h1 class="c-heading1">サンプル</h1>
+  <section>
+    <div class="l-container l-spacer">
+      <div class="p-head">
+        <div class="p-head__row">
+          <div class="p-head__col">
+            <p class="p-head__text">Player<span data-score="player">0</span></p>
+          </div>
+          <div class="p-head__col">
+            <p class="p-head__text">Computer<span data-score="computer">0</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="l-section js-intro-screen">
+    <div class="p-body">
+      <div class="l-container l-spacer">
+        <h1 class="c-heading1 u-text-center">Rock Paper and Scissors</h1>
+        <div class="c-button-container is-primary">
+          <a class="c-button is-default js-start-button">Let's Play</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="l-section is-fadeOut js-main-screen">
+    <div class="p-body">
+      <div class="l-container l-spacer">
+        <h1 class="c-heading1 u-text-center js-heading">Choose an Option</h1>
+        <div class="l-row p-body__row is-primary js-hand">
+          <div class="l-col-6 l-col-md-4">
+            <figure class="p-body__media is-reverse">
+              <img src="assets/images/rock.png" alt="Rock" data-player="user">
+            </figure>
+          </div>
+          <div class="l-col-6 l-col-md-4">
+            <figure class="p-body__media">
+              <img src="assets/images/rock.png" alt="Rock" data-player="pc">
+            </figure>
+          </div>
+        </div>
+        <div class="l-row p-body__row is-secondary js-hand-buttons">
+          <div class="l-col-md-4 p-body__col">
+            <div class="c-button-container is-secondary">
+              <a class="c-button is-default js-hand-button" data-hand="rock">Rock</a>
+            </div>
+          </div>
+          <div class="l-col-md-4 p-body__col">
+            <div class="c-button-container is-secondary">
+              <a class="c-button is-default js-hand-button" data-hand="paper">Paper</a>
+            </div>
+          </div>
+          <div class="l-col-md-4 p-body__col">
+            <div class="c-button-container is-secondary">
+              <a class="c-button is-default js-hand-button" data-hand="scissors">Scissors</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script defer src="./assets/javascript/index.js"></script>
 </body>
+
 </html>
