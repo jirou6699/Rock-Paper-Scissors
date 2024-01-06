@@ -15,14 +15,14 @@ document.addEventListener('DOMContentLoaded', () => {
   start_game();
   play_match();
 
-  function start_game() {
+  const start_game = () => {
     $startButton.addEventListener('click', () => {
       $introScreen.classList.add('is-fadeOut');
       $mainScreen.classList.add('is-fadeIn');
     });
   }
 
-  function play_match() {
+  const play_match = () => {
     $handButtons.forEach(($button) => {
       $button.addEventListener('click', (e)=> {
         const $playerHand = e.target.dataset.hand;
@@ -39,27 +39,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  function create_rand_hand() {
+  const create_rand_hand = () => {
     const $handsPattern =  Array.from($handButtons).map(($button) => { return $button.dataset.hand });
     return $handsPattern[(Math.floor(Math.random() * 3))];
   }
   
-  function toggle_class_with_animation() {
+  const toggle_class_with_animation = () => {
     $hand.classList.toggle('is-shake');
   }
 
-  function set_hands($handTypesArray) {
+  const set_hands = ($handTypesArray) => {
     $playerHands.forEach(($hand, index) => {
       $hand.src = `assets/images/${$handTypesArray[index]}.png`;
     });
   }
 
-  function show_message($key) {
+  const show_message = ($key) => {
     const $results = { 'tie': "It's a tie!", 'win': 'You win!', 'lose': 'Computer wins!' };
     $heading.textContent = $results[$key];
   }
 
-  function update_score($key) {
+  const update_score = ($key) => {
     if($key === 'win') {
       $playerScore++;
       $playerPanel.textContent = $playerScore;
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function result($playerHand, $computerHand) {
+  const result = ($playerHand, $computerHand) => {
     if($playerHand === $computerHand) {
       $result = 'tie';
     } else if (winning_pattern($playerHand, $computerHand)) { 
@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return $result;
   }
   
-  function winning_pattern ($playerHand, $computerHand) {
+  const winning_pattern = ($playerHand, $computerHand) => {
     return ($playerHand === 'rock' && $computerHand === 'scissors') || ($playerHand === 'scissors' && $computerHand === 'paper') || ($playerHand === 'paper' && $computerHand === 'rock');
   }
 });
