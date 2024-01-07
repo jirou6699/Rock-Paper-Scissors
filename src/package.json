@@ -7,20 +7,24 @@
     "dev:styles": "sass ./client/scss/style.scss ./assets/stylesheets/style.css && postcss --use autoprefixer --no-map ./assets/stylesheets/style.css -r",
     "watch:styles": "onchange \"./client/scss/**/*.scss\" -i -- npm run dev:styles",
     "build:styles": "sass --style=compressed ./client/scss/style.scss ./assets/stylesheets/style.css && postcss --use autoprefixer --no-map ./assets/stylesheets/style.css -r",
+    "lint": "eslint --fix ./assets/javascript/**/*.js && prettier --write ./assets/javascript/**/*.js",
     "start": "npm run watch:styles",
     "build": "npm run build:styles"
   },
   "author": "",
   "license": "ISC",
-  "dependencies": {
-    "autoprefixer": "^10.4.16",
-    "onchange": "^7.1.0",
-    "postcss": "^8.4.32",
-    "postcss-cli": "^11.0.0",
-    "sass": "^1.69.6"
-  },
   "browserslist": [
     "last 2 versions",
     "ie 11"
-  ]
+  ],
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "onchange": "^7.1.0",
+    "postcss": "^8.4.33",
+    "postcss-cli": "^11.0.0",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.7"
+  }
 }
