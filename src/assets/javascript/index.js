@@ -11,76 +11,91 @@ document.addEventListener('DOMContentLoaded', () => {
   const $playerHands = document.querySelectorAll('img[data-player]');
   const $hand = document.querySelector('.js-hand');
   const $heading = document.querySelector('.js-heading');
-  
-  start_game();
-  play_match();
-
   const start_game = () => {
     $startButton.addEventListener('click', () => {
       $introScreen.classList.add('is-fadeOut');
       $mainScreen.classList.add('is-fadeIn');
     });
-  }
+  };
 
   const play_match = () => {
     $handButtons.forEach(($button) => {
-      $button.addEventListener('click', (e)=> {
+      $button.addEventListener('click', (e) => {
         const $playerHand = e.target.dataset.hand;
         const $computerHand = create_rand_hand();
         const $matchResult = result($playerHand, $computerHand);
         toggle_class_with_animation();
-        $hand.addEventListener('animationend', () => {
-          set_hands([$playerHand, $computerHand]);
-          show_message($matchResult);
-          update_score($matchResult);
-          toggle_class_with_animation();
-        }, { once: true });
+        $hand.addEventListener(
+          'animationend',
+          () => {
+            set_hands([$playerHand, $computerHand]);
+            show_message($matchResult);
+            update_score($matchResult);
+            toggle_class_with_animation();
+          },
+          { once: true }
+        );
       });
     });
-  }
-  
+  };
+
   const create_rand_hand = () => {
-    const $handsPattern =  Array.from($handButtons).map(($button) => { return $button.dataset.hand });
-    return $handsPattern[(Math.floor(Math.random() * 3))];
-  }
-  
+    const $handsPattern = Array.from($handButtons).map(($button) => {
+      return $button.dataset.hand;
+    });
+    return $handsPattern[Math.floor(Math.random() * 3)];
+  };
+
   const toggle_class_with_animation = () => {
     $hand.classList.toggle('is-shake');
-  }
+  };
 
   const set_hands = ($handTypesArray) => {
     $playerHands.forEach(($hand, index) => {
       $hand.src = `assets/images/${$handTypesArray[index]}.png`;
     });
-  }
+  };
 
   const show_message = ($key) => {
-    const $results = { 'tie': "It's a tie!", 'win': 'You win!', 'lose': 'Computer wins!' };
+    const $results = {
+      tie: "It's a tie!",
+      win: 'You win!',
+      lose: 'Computer wins!'
+    };
     $heading.textContent = $results[$key];
-  }
+  };
 
   const update_score = ($key) => {
-    if($key === 'win') {
+    if ($key === 'win') {
       $playerScore++;
       $playerPanel.textContent = $playerScore;
-    } else if($key === 'lose') {
+    }
+
+    if ($key === 'lose') {
       $computerScore++;
       $computerPanel.textContent = $computerScore;
     }
-  }
+  };
 
   const result = ($playerHand, $computerHand) => {
-    if($playerHand === $computerHand) {
+    let $result = 'lose';
+    if ($playerHand === $computerHand) {
       $result = 'tie';
-    } else if (winning_pattern($playerHand, $computerHand)) { 
+    }
+    if (winning_pattern($playerHand, $computerHand)) {
       $result = 'win';
-    } else {
-      $result = 'lose';
     }
     return $result;
-  }
-  
+  };
+
   const winning_pattern = ($playerHand, $computerHand) => {
-    return ($playerHand === 'rock' && $computerHand === 'scissors') || ($playerHand === 'scissors' && $computerHand === 'paper') || ($playerHand === 'paper' && $computerHand === 'rock');
-  }
+    return (
+      ($playerHand === 'rock' && $computerHand === 'scissors') ||
+      ($playerHand === 'scissors' && $computerHand === 'paper') ||
+      ($playerHand === 'paper' && $computerHand === 'rock')
+    );
+  };
+
+  start_game();
+  play_match();
 });
